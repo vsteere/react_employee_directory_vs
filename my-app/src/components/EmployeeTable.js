@@ -1,51 +1,50 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 const EmployeeTable = (props) => {
-console.log(props);
+    console.log(props);
 
     return (
         <>
-         <table>
-             <tr>
-                <th>Name</th>
-                <th>image</th>
-                <th>phone number</th>
-                <th>email</th>
-             </tr>
-             {
-                 props.employees.map(
-                    employee => {
-                        return (<tr>
-                           
-                            <td>
-                                <img src = {employee.picture.medium} />
-                            </td>
+        <h1>Corporate Employee Directory</h1>
+            <table>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                </tr>
+                {
+                    props.employees.map(
+                        employee => {
+                            return (<tr>
 
-                            <td>
-                                {employee.name.first} {employee.name.last}
-                            </td>
-                            <td>
-                                {employee.phone}
-                            </td>
-                            <td>
-                            {employee.email}
+                                <td>
+                                    <img src={employee.picture.medium} />
+                                </td>
+                                <td>
+                                    {employee.name.first} {employee.name.last}
+                                </td>
+                                <td>
+                                    {employee.phone}
+                                </td>
+                                <td>
+                                    {employee.email}
+                                </td>
 
-                            </td>
+                            </tr>)
 
-                        </tr>)
-                    
-                    }
-                    
-
-                 )
+                        }
 
 
+                    )
 
-             }
-             
-             
-             
-             </table>   
+
+
+                }
+
+
+
+            </table>
         </>
     )
 }
