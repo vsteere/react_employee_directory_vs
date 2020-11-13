@@ -12,7 +12,36 @@ console.log(props);
                 <th>phone number</th>
                 <th>email</th>
              </tr>
-             
+             {
+                 props.employees.map(
+                    employee => {
+                        return (<tr>
+                           
+                            <td>
+                                <img src = {employee.picture.medium} />
+                            </td>
+
+                            <td>
+                                {employee.name.first} {employee.name.last}
+                            </td>
+                            <td>
+                                {employee.phone}
+                            </td>
+                            <td>
+                            {employee.email}
+
+                            </td>
+
+                        </tr>)
+                    
+                    }
+                    
+
+                 )
+
+
+
+             }
              
              
              
