@@ -2,6 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [employees, setEmployees] = useState([]);
+	useEffect(() => {
+		axios
+			.get("https://randomuser.me/api/?results=10&nat=us")
+			.then((response) => {
+				setEmployees([...response.data.results]);
+				//localStorage.setItem('employees_ls', JSON.stringify([...response.data.results]));
+				console.log(employees);
+			});
+	}, []);
+  
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -21,5 +33,8 @@ function App() {
     </div>
   );
 }
+
+
+
 
 export default App;
