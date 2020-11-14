@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 //importing in Axios package
 import axios from 'axios';
