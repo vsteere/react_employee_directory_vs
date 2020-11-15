@@ -3,6 +3,14 @@ import React, { useState, useEffect } from 'react'
 const EmployeeTable = (props) => {
     //check to see data is pulling from API
     console.log(props);
+    const [inputValue, setInputValue] = useState('');
+
+    function handleChange(e) {
+        setInputValue(e.target.value);
+        props.employees.filter(item => props.employees.name.last === inputValue) 
+            return item;
+        
+    }
 
     return (
         <>
@@ -16,7 +24,7 @@ const EmployeeTable = (props) => {
 
             <div>
                 <form>
-                    <input type="search" placeholder="Enter Name to filter by" />
+                    <input type="search" onChange={handleChange} value={inputValue} placeholder="Enter Name to filter by" />
 
                 </form>
             </div>
