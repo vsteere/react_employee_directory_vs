@@ -18,6 +18,28 @@ function App() {
       });
   }, []);
 
+  const [inputValue, setInputValue] = useState('');
+  const [filteredValue, setFilteredValue] = useState(employees);
+
+   //this function will filter the employees array based on the content of the input box 
+   function handleChange(e) {
+    // checking if props.employees contains data
+    console.log(employees)
+    setInputValue(e.target.value);
+    const userInput = e.target.value;
+    console.log(userInput)
+    console.log(employees)
+    const filteredList = employees.filter(item => {
+        if (item.name.last.toLowerCase() === userInput.toLowerCase()) {
+            return true
+        } 
+        return false
+    })
+  //  setFilteredValue(filteredList)
+  //  console.log(filteredValue)
+}
+
+
 
   return (
     <div className="App">
@@ -29,7 +51,7 @@ function App() {
             {/* Includes on OnChange event that will pass the value in the search box to the filter function above.  */}
             <div>
                 <form>
-                    <input type="search"  placeholder="Enter Last Name to filter by" />
+                    <input type="search" onChange={handleChange} placeholder="Enter Last Name to filter by" />
 
                 </form>
             </div>
