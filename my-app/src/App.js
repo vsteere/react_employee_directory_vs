@@ -38,9 +38,6 @@ function App() {
    setEmployees(filteredList)
   
 }
-
-
-
   return (
     <div className="App">
 
@@ -61,8 +58,5 @@ function App() {
     </div>
   );
 }
-
-
-
 
 export default App;
