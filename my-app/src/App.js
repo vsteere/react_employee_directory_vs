@@ -20,11 +20,11 @@ function App() {
 
     //this function will filter the employees array based on the content of the input box 
    function handleChange(e) {
-    // checking if props.employees contains data
+    // checking if props.employees contains data. This works
     console.log(employees)
     //this sets a variable to text currently in search box
     const userInput = e.target.value;
-    // testing to see if data is being captured in search box. It is
+    // testing to see if data is being captured in search box. This works
     console.log(userInput)
     //filters the employee array to match entry in search box
     const filteredList = employees.filter(item => {
@@ -33,6 +33,7 @@ function App() {
         } 
         return false
     })
+    //checks to see if array has been filtered. This does not work.
     console.log(filteredList)
     // updates state use the filteredList array
    setEmployees(filteredList)
