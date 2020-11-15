@@ -8,6 +8,19 @@ const EmployeeTable = (props) => {
         <>
             <h1>Corporate Employee Directory</h1>
 
+            {/* creates a search box for filtering and a button to sort the directory by last name. */}
+            <div>
+                <h2>Search Employees</h2>
+
+            </div>
+
+            <div>
+                <form>
+                    <input type="search" placeholder="Enter Name to filter by" />
+
+                </form>
+            </div>
+
             {/* Table with headings and map functionality to render specific parts of data from the object  */}
             <table>
                 <tr>
@@ -25,7 +38,7 @@ const EmployeeTable = (props) => {
                                     <img src={employee.picture.medium} />
                                 </td>
                                 <td>
-                                    {employee.name.first} {employee.name.last}
+                                    {employee.name.first + " " + employee.name.last}
                                 </td>
                                 <td>
                                     {employee.phone}
@@ -39,19 +52,7 @@ const EmployeeTable = (props) => {
                     )
                 }
             </table>
-            {/* second part to create a search box for filtering and a button to sort the directory by last name. */}
-           <div>
-                <h2>Sort and Search Employees</h2>
-                <button>Sort Directory by Last Name</button>
 
-            </div>
-
-            <div>
-                <form>
-                    <input type="search" placeholder="Enter Name to filter by" />
-
-                </form>
-            </div>
 
         </>
     )
