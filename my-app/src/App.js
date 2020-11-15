@@ -8,7 +8,9 @@ import EmployeeTable from "./components/EmployeeTable"
 
 // sets the state and uses axios to pull data from the randomuser API. The data will be used to render it in via the EmployeeTable component 
 function App() {
+  //default state that uses the original array from the API pull
   const [employees, setEmployees] = useState([]);
+  //state for the filtered results to rerender the page but not overwrite the original array
   const [filteredemployees, setFilteredemployees] = useState([]);
     useEffect(() => {
     axios
@@ -43,6 +45,12 @@ function App() {
     setFilteredemployees(filteredList)
   
 }
+
+// function sortEmployees(filteredemployees) {
+// let sortedList = [...filteredemployees] 
+// sortedList.sort((a,b) => {})
+
+// }
   return (
     <div className="App">
 
@@ -56,6 +64,11 @@ function App() {
                     <input type="search" onChange={handleChange} placeholder="Enter employee last name" />
 
                 </form>
+            </div>
+
+           
+            <div>
+              <button>Sort Employees by Last Name</button>
             </div>
       {/* This is the EmployeeTable component with the employees state that was set above in the Axios call */}
       <EmployeeTable employees={filteredemployees} />

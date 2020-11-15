@@ -4,12 +4,7 @@ const EmployeeTable = (props) => {
     //check to see data is pulling from API
     console.log(props);
     
-   
-
-   
-
-
-    return (
+       return (
         <>
             <h1>Corporate Employee Directory</h1>
 
