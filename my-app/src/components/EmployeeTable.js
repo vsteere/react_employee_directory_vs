@@ -5,12 +5,23 @@ const EmployeeTable = (props) => {
     console.log(props);
     const [inputValue, setInputValue] = useState('');
 
+    //this function will filter the employees array based on the content of the input box 
     function handleChange(e) {
+        // checking if props.employees contains data
+        console.log(props.employees)
         setInputValue(e.target.value);
-        props.employees.filter(item => props.employees.name.last === inputValue) 
-            return item;
-        
+        const userInput = e.target.value;
+        console.log(props.employees)
+        const filteredList = props.employees.filter(item => {
+            if (item.name.last === userInput) {
+                return true
+            } 
+            return false
+        })
+       
     }
+
+
 
     return (
         <>
@@ -21,7 +32,7 @@ const EmployeeTable = (props) => {
                 <h2>Search Employees</h2>
 
             </div>
-
+            {/* Includes on OnChange event that will pass the value in the search box to the filter function above.  */}
             <div>
                 <form>
                     <input type="search" onChange={handleChange} value={inputValue} placeholder="Enter Name to filter by" />
