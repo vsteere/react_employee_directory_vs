@@ -9,11 +9,13 @@ import EmployeeTable from "./components/EmployeeTable"
 // sets the state and uses axios to pull data from the randomuser API. The data will be used to render it in via the EmployeeTable component 
 function App() {
   const [employees, setEmployees] = useState([]);
-  useEffect(() => {
+  const [filteredemployees, setFilteredemployees] = useState([]);
+    useEffect(() => {
     axios
       .get("https://randomuser.me/api/?results=15&nat=us")
       .then((response) => {
         setEmployees([...response.data.results]);
+        setFilteredemployees([...response.data.results]);
         console.log(response);
       });
   }, []);
@@ -28,6 +30,8 @@ function App() {
     console.log(userInput)
     //filters the employee array to match entry in search box
     const filteredList = employees.filter(item => {
+      console.log(item.name.last.toLowerCase());
+      console.log(userInput.toLowerCase())
         if (item.name.last.toLowerCase() === userInput.toLowerCase()) {
             return true
         } 
@@ -36,7 +40,7 @@ function App() {
     //checks to see if array has been filtered. This does not work.
     console.log(filteredList)
     // updates state use the filteredList array
-   setEmployees(filteredList)
+    setFilteredemployees(filteredList)
   
 }
   return (
@@ -54,7 +58,7 @@ function App() {
                 </form>
             </div>
       {/* This is the EmployeeTable component with the employees state that was set above in the Axios call */}
-      <EmployeeTable employees={employees} />
+      <EmployeeTable employees={filteredemployees} />
 
     </div>
   );
