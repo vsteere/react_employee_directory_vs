@@ -31,17 +31,7 @@ const EmployeeTable = (props) => {
             <h1>Corporate Employee Directory</h1>
 
             {/* creates a search box for filtering and a button to sort the directory by last name. */}
-            <div>
-                <h2>Search Employees</h2>
-
-            </div>
-            {/* Includes on OnChange event that will pass the value in the search box to the filter function above.  */}
-            <div>
-                <form>
-                    <input type="search" onChange={handleChange} value={inputValue} placeholder="Enter Name to filter by" />
-
-                </form>
-            </div>
+            
 
             {/* Table with headings and map functionality to render specific parts of data from the object  */}
             <table>
@@ -52,7 +42,7 @@ const EmployeeTable = (props) => {
                     <th>Email</th>
                 </tr>
                 {
-                    filteredValue.map(
+                    props.employees.map(
                         employee => {
                             return (<tr>
 

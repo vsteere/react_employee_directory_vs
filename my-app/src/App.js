@@ -21,6 +21,18 @@ function App() {
 
   return (
     <div className="App">
+
+<div>
+                <h2>Search Employees</h2>
+
+            </div>
+            {/* Includes on OnChange event that will pass the value in the search box to the filter function above.  */}
+            <div>
+                <form>
+                    <input type="search"  placeholder="Enter Last Name to filter by" />
+
+                </form>
+            </div>
       {/* This is the EmployeeTable component with the employees state that was set above in the Axios call */}
       <EmployeeTable employees={employees} />
 
